@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search.API", "Search.API\Search.API.csproj", "{04383EF2-CA58-40F9-A04E-E9EA84D7BA27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search.Api", "Search.Api\Search.Api.csproj", "{04383EF2-CA58-40F9-A04E-E9EA84D7BA27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search.Contract", "Search.Contract\Search.Contract.csproj", "{C5B49988-33FD-4F9F-BD32-170FF025A9BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search.Service", "Search.Service\Search.Service.csproj", "{5EE7941C-5D9C-45F5-9DDF-4CC09B5BC461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +16,13 @@ Global
 		{04383EF2-CA58-40F9-A04E-E9EA84D7BA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04383EF2-CA58-40F9-A04E-E9EA84D7BA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04383EF2-CA58-40F9-A04E-E9EA84D7BA27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B49988-33FD-4F9F-BD32-170FF025A9BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B49988-33FD-4F9F-BD32-170FF025A9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B49988-33FD-4F9F-BD32-170FF025A9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B49988-33FD-4F9F-BD32-170FF025A9BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE7941C-5D9C-45F5-9DDF-4CC09B5BC461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE7941C-5D9C-45F5-9DDF-4CC09B5BC461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE7941C-5D9C-45F5-9DDF-4CC09B5BC461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE7941C-5D9C-45F5-9DDF-4CC09B5BC461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
