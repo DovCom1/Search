@@ -7,11 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Service\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Search.Contract\Search.Contract.csproj" />
+      <ProjectReference Include="..\Search.Model\Search.Model.csproj" />
     </ItemGroup>
 
 </Project>
