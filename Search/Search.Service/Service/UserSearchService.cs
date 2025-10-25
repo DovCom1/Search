@@ -12,7 +12,7 @@ public class UserSearchService(HttpClient httpClient) : IUserSearchService
 {
     public async Task<ShortUserDTO> GetUserByUidAsync(string uid, CancellationToken ct = default)
     {
-        var response = await httpClient.GetAsync($"/search-api?uid={uid}", ct);
+        var response = await httpClient.GetAsync($"/api/users/search-api?uid={uid}", ct);
         if (!response.IsSuccessStatusCode)
         {
             await ReadErrorResponse(response, ct);
@@ -26,7 +26,7 @@ public class UserSearchService(HttpClient httpClient) : IUserSearchService
     public async Task<PagedUsersMainDTO> GetUsersByNicknameAsync(string nickname, int offset, int limit,
         CancellationToken ct = default)
     {
-        var response = await httpClient.GetAsync($"/api/users/search?nickname={Uri.EscapeDataString(nickname)}&offset={offset}&limit={limit}", ct);
+        var response = await httpClient.GetAsync($"/api/users/search-api?nickname={Uri.EscapeDataString(nickname)}&offset={offset}&limit={limit}", ct);
         if (!response.IsSuccessStatusCode)
         {
             await ReadErrorResponse(response, ct);
