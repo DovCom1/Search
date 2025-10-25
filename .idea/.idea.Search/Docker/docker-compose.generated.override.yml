@@ -3,7 +3,7 @@ version: "3.8"
 services:
   search:
     build:
-      context: "R:\\Repositories\\Search\\Search"
+      context: "R:\\Repositories\\Search"
       dockerfile: "Search.Api/Dockerfile"
       target: "base"
     command: []
@@ -16,6 +16,6 @@ services:
     ports: []
     volumes:
     - "C:\\Users\\Serpen\\.nuget\\packages:/home/app/.nuget/packages"
-    - "R:\\Repositories\\Search\\Search\\Search.Api:/app:rw"
-    - "R:\\Repositories\\Search\\Search:/src:rw"
+    - "R:\\Repositories\\Search\\Search.Api:/app:rw"
+    - "R:\\Repositories\\Search:/src:rw"
     working_dir: "/app"
