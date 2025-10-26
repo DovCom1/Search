@@ -12,6 +12,9 @@ env:
 jobs:
     build-and-push:
         runs-on: ubuntu-latest
+        permissions:
+          contents: read
+          packages: write
 
         steps:
             - name: Checkout code
@@ -49,9 +52,6 @@ jobs:
     release:
       needs: build-and-push
       runs-on: ubuntu-latest
-      permissions:
-        contents: read
-        packages: write
       steps:
         - uses: actions/checkout@v4
           with:
