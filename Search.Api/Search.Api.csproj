@@ -17,10 +17,4 @@
       <ProjectReference Include="..\Search.Service\Search.Service.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
 </Project>
