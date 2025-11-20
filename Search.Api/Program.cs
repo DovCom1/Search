@@ -1,15 +1,30 @@
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Search.API.Middleware;
 using Search.Contract.Manager;
 using Search.Contract.Service;
 using Search.Service.Manager;
+using Search.Service.Request;
 using Search.Service.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHealthChecks();
-
 builder.Services.AddControllers();
+
+builder.Services.Configure<RequestDomains>(builder.Configuration.GetSection("RequestDomains"));
+
+builder.Services.AddSingleton<RequestFactory>();
+builder.Services.AddHttpClient();
+
+// builder.Services.AddHttpClient<IUserSearchService, UserSearchService>((sp, client) =>
+// {
+//     var domains = sp.GetRequiredService<IOptions<RequestDomains>>().Value;
+//     client.BaseAddress = new Uri(domains.UserService);
+// });
+
+builder.Services.AddScoped<IUserSearchManager, UserSearchManager>();
+builder.Services.AddScoped<IUserSearchService, UserSearchService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -21,13 +36,6 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API для работы с Search"
     });
 });
-
-builder.Services.AddHttpClient<IUserSearchService, UserSearchService>(client =>
-{
-    client.BaseAddress = new Uri("http://user-service:8080");
-});
-
-builder.Services.AddScoped<IUserSearchManager, UserSearchManager>();
 
 var app = builder.Build();
 

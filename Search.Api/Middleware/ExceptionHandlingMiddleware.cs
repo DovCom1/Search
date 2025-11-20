@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using Search.Contract.Exceptions;
+using Search.Model.Exceptions;
 
 namespace Search.API.Middleware;
 

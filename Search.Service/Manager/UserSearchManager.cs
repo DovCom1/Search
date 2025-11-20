@@ -1,7 +1,7 @@
-﻿using Search.Contract.Exceptions;
-using Search.Contract.Manager;
+﻿using Search.Contract.Manager;
 using Search.Contract.Service;
 using Search.Model.DTO.User;
+using Search.Model.Exceptions;
 
 namespace Search.Service.Manager;
 

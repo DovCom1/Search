@@ -1,18 +1,23 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Json;
 using System.Text.Json;
-using Search.Contract.Exceptions;
 using Search.Contract.Service;
 using Search.Model.DTO;
 using Search.Model.DTO.User;
+using Microsoft.Extensions.Options;
+using Search.Model.Exceptions;
+using Search.Service.Request;
 
 namespace Search.Service.Service;
 
-public class UserSearchService(HttpClient httpClient) : IUserSearchService
+public class UserSearchService(IHttpClientFactory clientFactory, RequestFactory requestFactory) : IUserSearchService
 {
     public async Task<ShortUserDTO> GetUserByUidAsync(string uid, CancellationToken ct = default)
     {
-        var response = await httpClient.GetAsync($"/api/users/search-api?uid={uid}", ct);
+        var client = clientFactory.CreateClient();
+        var request = requestFactory.GetUserByUid(uid);
+        // var response = await httpClient.GetAsync($"/api/users/search-api?uid={uid}", ct);
+        var response = await client.SendAsync(request, ct);
         if (!response.IsSuccessStatusCode)
         {
             await ReadErrorResponse(response, ct);
@@ -26,7 +31,10 @@ public class UserSearchService(HttpClient httpClient) : IUserSearchService
     public async Task<PagedUsersMainDTO> GetUsersByNicknameAsync(string nickname, int offset, int limit,
         CancellationToken ct = default)
     {
-        var response = await httpClient.GetAsync($"/api/users/search-api?nickname={Uri.EscapeDataString(nickname)}&offset={offset}&limit={limit}", ct);
+        var client = clientFactory.CreateClient();
+        var request = requestFactory.GetUserByNickname(nickname, offset, limit);
+        var response = await client.SendAsync(request, ct);
+        // var response = await httpClient.GetAsync($"/api/users/search-api?nickname={Uri.EscapeDataString(nickname)}&offset={offset}&limit={limit}", ct);
         if (!response.IsSuccessStatusCode)
         {
             await ReadErrorResponse(response, ct);

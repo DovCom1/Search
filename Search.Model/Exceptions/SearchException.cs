@@ -1,4 +1,4 @@
-﻿namespace Search.Contract.Exceptions;
+﻿namespace Search.Model.Exceptions;
 
 public class SearchException(string error, int statusCode = 400) : Exception(error)
 {
